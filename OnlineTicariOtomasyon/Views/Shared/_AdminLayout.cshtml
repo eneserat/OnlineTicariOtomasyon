@@ -46,14 +46,13 @@
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
-                        <div class="sb-sidenav-menu-heading">Ana</div>
+                        <div class="sb-sidenav-menu-heading">İŞLEMLER</div>
                         <a class="nav-link" href="/Index/Category">
                             <div class="sb-nav-link-icon">
                                 <i class="fas fa-tags text-primary"></i>
                             </div>
                             Kategoriler
                         </a>
-                        <div class="sb-sidenav-menu-heading">Arayüz</div>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts">
                             <div class="sb-nav-link-icon">
                                 <i class="fas fa-box text-primary"></i>
@@ -72,8 +71,8 @@
                             </nav>
                         </div>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                            <div class="sb-nav-link-icon"><i class="fas fa-sitemap text-primary"></i></div>
-                            Departmanlar
+                            <div class="sb-nav-link-icon"><i class="fas fa-cogs text-primary"></i></div>
+                            İşlemler
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
 
@@ -119,21 +118,44 @@
                                         </a>
                                     </nav>
                                 </div>
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseAdmin" aria-expanded="false" aria-controls="collapseAdmin">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-user-cog text-primary"></i></div>
+                                    Admin İşlemleri
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
 
+                                <div class="collapse" id="collapseAdmin" data-bs-parent="#sidenavAccordionPages">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="#">
+                                            <i class="fas fa-user-shield text-primary me-2"></i> Admin İşlemleri
+                                        </a>
+                                        <a class="nav-link" href="#">
+                                            <i class="fas fa-user-plus text-success me-2"></i> Admin Ekle
+                                        </a>
+                                        <a class="nav-link" href="#">
+                                            <i class="fas fa-user-edit text-warning me-2"></i> Admin Düzenle
+                                        </a>
+                                    </nav>
+                                </div>
                             </nav>
                         </div>
-                        <div class="sb-sidenav-menu-heading">Eklentiler</div>
-                        <a class="nav-link" href="charts.html">
-                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                            Grafikler
-                        </a>
-                        <a class="nav-link" href="tables.html">
-                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                            Tablolar
-                        </a>
-                    </div>
+                        <div class="sb-sidenav-menu-heading">Rapor & Fatura</div>
 
-                </div>
+                        <a class="nav-link" href="charts.html">
+                            <div class="sb-nav-link-icon">
+                                <i class="fas fa-file-invoice text-primary"></i>
+                            </div>
+                            Faturalar
+                        </a>
+
+                        <a class="nav-link" href="tables.html">
+                            <div class="sb-nav-link-icon">
+                                <i class="fas fa-file-invoice-dollar text-primary"></i>
+                            </div>
+                            Fatura Kalemler
+                        </a>
+
+                    </div>
                
             </nav>
         </div>
