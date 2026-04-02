@@ -12,7 +12,7 @@
 
     <div class="card-body">
 
-        <!-- Başarı / Hata Mesajları -->
+
         @if (TempData["Success"] != null)
         {
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -60,9 +60,9 @@
                             </a>
                         </td>
 
-                        
+
                         <td>
-                            <a href="@Url.Action("CategoryUpdate", "Category", new { id = k.CategoryID })"
+                            <a href="@Url.Action("CategoryGet", "Category", new { id = k.CategoryID })"
                                class="btn btn-warning btn-sm text-white">
                                 <i class="fas fa-pen"></i>
                             </a>
