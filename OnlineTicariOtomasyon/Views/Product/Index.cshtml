@@ -1,9 +1,21 @@
 ﻿@model List<OnlineTicariOtomasyon.Models.Classes.Product>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Ürün Listesi";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+
 <br />
+
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+        <i class="fas fa-check-circle me-2"></i>
+        @TempData["Success"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
 <div class="card shadow-sm mt-4 col-md-12">
 
     <div class="card-header bg-dark text-white">
@@ -19,10 +31,10 @@
                     <th><i class="fas fa-box"></i> Ürün Adı</th>
                     <th><i class="fas fa-tag"></i> Ürün Marka</th>
                     <th><i class="fas fa-layer-group"></i> Stok</th>
-                    <th><i class="fas fa-dollar-sign"></i> Alış Fiyat</th>
-                    <th><i class="fas fa-dollar-sign"></i> Satış Fiyat</th>
+                    <th><i class=""></i> Alış Fiyat</th>
+                    <th><i class=""></i> Satış Fiyat</th>
                     <th><i class="fas fa-image"></i> Ürün Görsel</th>
-                    <th><i class="fas fa-tags"></i> Kategori </th>
+                    <th><i class="fas fa-tags"></i> Kategori ID</th>
                 </tr>
             </thead>
             <tbody>
@@ -31,15 +43,14 @@
                     <tr>
                         <td>@p.ProductID</td>
                         <td>@p.ProductName</td>
-                        <td>@p.ProductStock</td>
+                        <td>@p.ProductBrand</td>
                         <td>
                             <span class="badge bg-primary px-3 py-2 d-inline-block text-center" style="min-width:80px;">
                                 @p.ProductStock
                             </span>
                         </td>
-                        <td>@p.ProductBrand</td>
-                        <td>@String.Format("{0:C}", p.PurchasePrice)</td>
-                        <td>@String.Format("{0:C}", p.SellingPrice)</td>
+                        <td>@String.Format("₺{0:N2}", p.PurchasePrice)</td>
+                        <td>@String.Format("₺{0:N2}", p.SellingPrice)</td>
                         <td>
                             @if (!string.IsNullOrEmpty(p.ProductImage))
                             {

@@ -33,5 +33,53 @@ namespace OnlineTicariOtomasyon.Controllers
             TempData["Success"] = "Ürün başarıyla eklendi!";
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public ActionResult ProductEdit(int id)
+        {
+          
+            var product = c.Products.Include("Category").FirstOrDefault(x => x.ProductID == id);
+            if (product == null)
+            {
+                return HttpNotFound();
+            }
+
+            
+            ViewBag.Categories = new SelectList(c.Categories.ToList(), "CategoryID", "CategoryName", product.CategoryID);
+
+            return View(product);
+        }
+        [HttpPost]
+        public ActionResult ProductEdit(Product product)
+        {
+            if (ModelState.IsValid)
+            {
+                var existingProduct = c.Products.Find(product.ProductID);
+                if (existingProduct == null)
+                {
+                    return HttpNotFound();
+                }
+
+               
+                existingProduct.ProductName = product.ProductName;
+                existingProduct.ProductBrand = product.ProductBrand;
+                existingProduct.ProductStock = product.ProductStock;
+                existingProduct.PurchasePrice = product.PurchasePrice;
+                existingProduct.SellingPrice = product.SellingPrice;
+                existingProduct.ProductImage = product.ProductImage;
+                existingProduct.CategoryID = product.CategoryID;
+
+                c.SaveChanges();
+
+                TempData["Success"] = "Ürün başarıyla güncellendi!";
+                return RedirectToAction("Index");
+            }
+
+           
+            ViewBag.Categories = new SelectList(c.Categories.ToList(), "CategoryID", "CategoryName", product.CategoryID);
+
+            return View(product);
+        }
+
+
     }
 }
