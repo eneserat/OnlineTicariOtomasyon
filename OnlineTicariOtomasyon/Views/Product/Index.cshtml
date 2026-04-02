@@ -1,0 +1,59 @@
+﻿@model List<OnlineTicariOtomasyon.Models.Classes.Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<div class="card shadow-sm mt-4 col-md-12">
+
+    <div class="card-header bg-dark text-white">
+        <i class="fas fa-boxes me-2"></i> Ürün Listesi
+    </div>
+
+    <div class="card-body">
+
+        <table class="table table-hover table-striped align-middle text-center">
+            <thead class="table-dark">
+                <tr>
+                    <th><i class="fas fa-hashtag"></i> ID</th>
+                    <th><i class="fas fa-box"></i> Ürün Adı</th>
+                    <th><i class="fas fa-tag"></i> Ürün Marka</th>
+                    <th><i class="fas fa-layer-group"></i> Stok</th>
+                    <th><i class="fas fa-dollar-sign"></i> Alış Fiyat</th>
+                    <th><i class="fas fa-dollar-sign"></i> Satış Fiyat</th>
+                    <th><i class="fas fa-image"></i> Ürün Görsel</th>
+                    <th><i class="fas fa-tags"></i> Kategori </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var p in Model)
+                {
+                    <tr>
+                        <td>@p.ProductID</td>
+                        <td>@p.ProductName</td>
+                        <td>@p.ProductStock</td>
+                        <td>
+                            <span class="badge bg-primary px-3 py-2 d-inline-block text-center" style="min-width:80px;">
+                                @p.ProductStock
+                            </span>
+                        </td>
+                        <td>@p.ProductBrand</td>
+                        <td>@String.Format("{0:C}", p.PurchasePrice)</td>
+                        <td>@String.Format("{0:C}", p.SellingPrice)</td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(p.ProductImage))
+                            {
+                                <img src="@Url.Content(p.ProductImage)" alt="@p.ProductName" style="width:50px; height:50px; object-fit:cover; border-radius:5px;" />
+                            }
+                        </td>
+                        <td>@p.CategoryID</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
