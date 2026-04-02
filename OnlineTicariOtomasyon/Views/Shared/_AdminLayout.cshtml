@@ -46,13 +46,19 @@
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
+
+                        <!-- İŞLEMLER -->
                         <div class="sb-sidenav-menu-heading">İŞLEMLER</div>
+
+                        <!-- Kategoriler -->
                         <a class="nav-link" href="/Index/Category">
                             <div class="sb-nav-link-icon">
                                 <i class="fas fa-tags text-primary"></i>
                             </div>
                             Kategoriler
                         </a>
+
+                        <!-- Ürünler -->
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts">
                             <div class="sb-nav-link-icon">
                                 <i class="fas fa-box text-primary"></i>
@@ -70,12 +76,63 @@
                                 <a class="nav-link" href="#">⭐ Öne Çıkan Ürünler</a>
                             </nav>
                         </div>
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                            <div class="sb-nav-link-icon"><i class="fas fa-cogs text-primary"></i></div>
-                            İşlemler
+
+                        <!-- Cariler -->
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseCariler" aria-expanded="false" aria-controls="collapseCariler">
+                            <div class="sb-nav-link-icon">
+                                <i class="fas fa-address-book text-primary"></i>
+                            </div>
+                            Cariler
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseCariler" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="/Cari/List">
+                                    <i class="fas fa-list text-info me-2"></i> Cari Listesi
+                                </a>
+                                <a class="nav-link" href="/Cari/Add">
+                                    <i class="fas fa-user-plus text-success me-2"></i> Cari Ekle
+                                </a>
+                                <a class="nav-link" href="/Cari/Transactions">
+                                    <i class="fas fa-exchange-alt text-warning me-2"></i> Cari İşlemleri
+                                </a>
+                                <a class="nav-link" href="/Cari/Reports">
+                                    <i class="fas fa-file-invoice text-danger me-2"></i> Cari Raporlar
+                                </a>
+                            </nav>
+                        </div>
+                        <!-- Admin İşlemleri -->
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseAdmin" aria-expanded="false" aria-controls="collapseAdmin">
+                            <div class="sb-nav-link-icon">
+                                <i class="fas fa-user-cog text-primary"></i>
+                            </div>
+                            Admin İşlemleri
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
 
+                        <div class="collapse" id="collapseAdmin" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-user-shield text-primary me-2"></i> Admin Listesi
+                                </a>
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-user-plus text-success me-2"></i> Admin Ekle
+                                </a>
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-user-edit text-warning me-2"></i> Admin Düzenle
+                                </a>
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-key text-danger me-2"></i> Yetki Atama
+                                </a>
+                            </nav>
+                        </div>
+
+                        <!-- İşlemler -->
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                            <div class="sb-nav-link-icon"><i class="fas fa-cogs text-primary"></i></div>
+                            Departman&Personel
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
                         <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
 
@@ -84,7 +141,6 @@
                                     <i class="fas fa-building text-warning me-2"></i> Departman Yönetimi
                                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                                 </a>
-
                                 <div class="collapse" id="pagesCollapseDept" data-bs-parent="#sidenavAccordionPages">
                                     <nav class="sb-sidenav-menu-nested nav">
                                         <a class="nav-link" href="/Department/List">
@@ -104,7 +160,6 @@
                                     <i class="fas fa-users text-success me-2"></i> Personel İşlemleri
                                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                                 </a>
-
                                 <div class="collapse" id="pagesCollapseStaff" data-bs-parent="#sidenavAccordionPages">
                                     <nav class="sb-sidenav-menu-nested nav">
                                         <a class="nav-link" href="/Staff/List">
@@ -118,27 +173,13 @@
                                         </a>
                                     </nav>
                                 </div>
-                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseAdmin" aria-expanded="false" aria-controls="collapseAdmin">
-                                    <div class="sb-nav-link-icon"><i class="fas fa-user-cog text-primary"></i></div>
-                                    Admin İşlemleri
-                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                </a>
 
-                                <div class="collapse" id="collapseAdmin" data-bs-parent="#sidenavAccordionPages">
-                                    <nav class="sb-sidenav-menu-nested nav">
-                                        <a class="nav-link" href="#">
-                                            <i class="fas fa-user-shield text-primary me-2"></i> Admin İşlemleri
-                                        </a>
-                                        <a class="nav-link" href="#">
-                                            <i class="fas fa-user-plus text-success me-2"></i> Admin Ekle
-                                        </a>
-                                        <a class="nav-link" href="#">
-                                            <i class="fas fa-user-edit text-warning me-2"></i> Admin Düzenle
-                                        </a>
-                                    </nav>
-                                </div>
+                                <!-- Admin İşlemleri -->
+
                             </nav>
                         </div>
+
+                        <!-- Rapor & Fatura -->
                         <div class="sb-sidenav-menu-heading">Rapor & Fatura</div>
 
                         <a class="nav-link" href="charts.html">
@@ -147,16 +188,27 @@
                             </div>
                             Faturalar
                         </a>
-
                         <a class="nav-link" href="tables.html">
                             <div class="sb-nav-link-icon">
                                 <i class="fas fa-file-invoice-dollar text-primary"></i>
                             </div>
                             Fatura Kalemler
                         </a>
+                        <a class="nav-link" href="tables.html">
+                            <div class="sb-nav-link-icon">
+                                <i class="fas fa-money-bill-wave text-danger"></i>
+                            </div>
+                            Giderler
+                        </a>
+                        <a class="nav-link" href="tables.html">
+                            <div class="sb-nav-link-icon">
+                                <i class="fas fa-exchange-alt text-info"></i>
+                            </div>
+                            Hareketler
+                        </a>
 
                     </div>
-               
+                </div>
             </nav>
         </div>
         <div id="layoutSidenav_content">

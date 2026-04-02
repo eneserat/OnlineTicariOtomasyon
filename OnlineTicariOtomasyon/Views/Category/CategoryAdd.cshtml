@@ -1,0 +1,41 @@
+﻿@model OnlineTicariOtomasyon.Models.Classes.Category
+@{
+    ViewBag.Title = "CategoryAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<div class="card shadow-sm mt-4 col-md-10 offset-md-1">
+
+    <div class="card-header bg-dark text-white">
+        <i class="fas fa-folder-plus me-2"></i> Kategori Ekleme Sayfası
+    </div>
+
+    <div class="card-body">
+        <form class="form-group" method="post">
+
+            <label class="form-label">
+                <i class="fas fa-tag me-1"></i> Kategori Adı
+            </label>
+
+            @Html.TextBoxFor(x => x.CategoryName, new
+            {
+                @class = "form-control",
+                placeholder = "Kategori Adı"
+            })
+
+            <br />
+
+            <div class="d-flex justify-content-between">
+                <a href="/Category/Index" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Geri Dön
+                </a>
+
+                <button class="btn btn-success">
+                    <i class="fas fa-save"></i> Kaydet
+                </button>
+            </div>
+
+        </form>
+    </div>
+
+</div>
