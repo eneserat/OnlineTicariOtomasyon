@@ -1,0 +1,61 @@
+﻿@model OnlineTicariOtomasyon.Models.Classes.Department
+@{
+    ViewBag.Title = "DepartmentAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<br />
+
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+        <i class="fas fa-check-circle me-2"></i> @TempData["Success"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+        <i class="fas fa-exclamation-triangle me-2"></i> @TempData["Error"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<div class="card shadow-sm mt-4 col-md-6 offset-md-3">
+    <div class="card-header bg-dark text-white">
+        <i class="fas fa-building me-2"></i> Yeni Departman Ekle
+    </div>
+    <div class="card-body">
+        @using (Html.BeginForm("DepartmentAdd", "Department", FormMethod.Post))
+        {
+            <div class="mb-3">
+                <label class="form-label"><i class="fas fa-id-badge me-1"></i> Departman ID</label>
+                @Html.TextBoxFor(x => x.DepartmentID, new { @class = "form-control", placeholder = "Departman ID" })
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label"><i class="fas fa-building me-1"></i> Departman Adı</label>
+                @Html.TextBoxFor(x => x.DepartmentName, new { @class = "form-control", placeholder = "Departman Adı" })
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label"><i class="fas fa-image me-1"></i> Departman Görsel URL</label>
+                @Html.TextBoxFor(x => x.DepartmentImage, new { @class = "form-control", placeholder = "Görsel URL" })
+            </div>
+
+            <div class="d-flex justify-content-between mt-3">
+                <a href="/Department/Index" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left me-1"></i> Geri Dön
+                </a>
+                <button type="submit" class="btn btn-success">
+                    <i class="fas fa-plus me-1"></i> Ekle
+                </button>
+            </div>
+        }
+    </div>
+</div>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>

@@ -7,6 +7,7 @@
 
 <br />
 
+
 @if (TempData["Success"] != null)
 {
     <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
@@ -16,16 +17,14 @@
     </div>
 }
 
-<div class="card shadow-sm mt-4 col-md-10 offset-md-1">
-
+<div class="card shadow-sm mt-4 col-md-8 offset-md-2">
     <div class="card-header bg-dark text-white">
         <i class="fas fa-box-open me-2"></i> Ürün Güncelleme Sayfası
     </div>
-
     <div class="card-body">
         @using (Html.BeginForm("ProductEdit", "Product", FormMethod.Post))
         {
-            @Html.HiddenFor(x => x.ProductID)
+            @Html.HiddenFor(x => x.ProductID) 
 
             <div class="mb-3">
                 <label class="form-label"><i class="fas fa-box me-1"></i> Ürün Adı</label>
@@ -62,13 +61,13 @@
                 @Html.DropDownListFor(x => x.CategoryID, (SelectList)ViewBag.Categories, "Kategori Seç", new { @class = "form-select" })
             </div>
 
-            <div class="d-flex justify-content-between">
+         
+            <div class="mt-3 d-flex justify-content-between">
                 <a href="/Product/Index" class="btn btn-secondary">
                     <i class="fas fa-arrow-left"></i> Geri Dön
                 </a>
-
-                <button class="btn btn-success">
-                    <i class="fas fa-save"></i> Güncelle
+                <button type="submit" class="btn btn-success">
+                    <i class="fas fa-save me-1"></i> Güncelle
                 </button>
             </div>
         }
