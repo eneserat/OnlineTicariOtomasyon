@@ -29,8 +29,8 @@
         @Html.HiddenFor(m => m.AdminID)
 
         <div class="mb-3">
-            @Html.LabelFor(m => m.Username, "Kullanıcı Adı", new { @class = "form-label" })
-            @Html.TextBoxFor(m => m.Username, new { @class = "form-control", placeholder = "Kullanıcı adı giriniz" })
+            @Html.LabelFor(m => m.UserName, "Kullanıcı Adı", new { @class = "form-label" })
+            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = "Kullanıcı adı giriniz" })
         </div>
 
         <div class="mb-3">
@@ -39,8 +39,8 @@
         </div>
 
         <div class="mb-3">
-            @Html.LabelFor(m => m.Role, "Yetki / Rol", new { @class = "form-label" })
-            @Html.TextBoxFor(m => m.Role, new { @class = "form-control", placeholder = "Admin yetkisi giriniz (ör: SuperAdmin)" })
+            @Html.LabelFor(m => m.Authority, "Yetki / Rol", new { @class = "form-label" })
+            @Html.TextBoxFor(m => m.Authority, new { @class = "form-control", placeholder = "Admin yetkisi giriniz (ör: SuperAdmin)" })
         </div>
 
         <button type="submit" class="btn btn-primary">
