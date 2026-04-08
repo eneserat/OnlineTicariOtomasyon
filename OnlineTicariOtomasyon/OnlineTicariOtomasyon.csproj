@@ -140,6 +140,7 @@
     <Compile Include="Models\Classes\Context.cs" />
     <Compile Include="Models\Classes\Current.cs" />
     <Compile Include="Models\Classes\Department.cs" />
+    <Compile Include="Models\Classes\DepartmentDetailsVM.cs" />
     <Compile Include="Models\Classes\Employee.cs" />
     <Compile Include="Models\Classes\Expense.cs" />
     <Compile Include="Models\Classes\Product.cs" />
@@ -228,6 +229,7 @@
     <Content Include="Views\Department\Index.cshtml" />
     <Content Include="Views\Department\DepartmentAdd.cshtml" />
     <Content Include="Views\Department\DepartmentEdit.cshtml" />
+    <Content Include="Views\Department\DepartmentDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
