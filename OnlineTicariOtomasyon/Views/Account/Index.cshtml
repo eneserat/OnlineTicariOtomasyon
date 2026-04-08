@@ -43,6 +43,17 @@
     .alert {
         font-size: 0.9rem;
     }
+
+    .input-group-text {
+        background: #1e3c72;
+        color: #fff;
+        border: none;
+    }
+
+    .form-control:focus {
+        box-shadow: none;
+        border-color: #1e3c72;
+    }
 </style>
 
 <div class="d-flex justify-content-center align-items-center vh-100">
@@ -63,13 +74,13 @@
 
         @using (Html.BeginForm("Login", "Account", FormMethod.Post))
         {
-            <div class="mb-3">
-                @Html.Label("Kullanıcı Adı", htmlAttributes: new { @class = "form-label" })
-                @Html.TextBox("Username", null, new { @class = "form-control", placeholder = "Kullanıcı adı giriniz" })
+            <div class="mb-3 input-group">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                @Html.TextBox("UserName", null, new { @class = "form-control", placeholder = "Kullanıcı adı giriniz" })
             </div>
 
-            <div class="mb-3">
-                @Html.Label("Şifre", htmlAttributes: new { @class = "form-label" })
+            <div class="mb-3 input-group">
+                <span class="input-group-text"><i class="fas fa-lock"></i></span>
                 @Html.Password("Password", null, new { @class = "form-control", placeholder = "Şifre giriniz" })
             </div>
 
