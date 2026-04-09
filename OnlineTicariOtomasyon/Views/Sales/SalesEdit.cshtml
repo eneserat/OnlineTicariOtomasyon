@@ -1,0 +1,43 @@
+﻿@model OnlineTicariOtomasyon.Models.Classes.SalesTransaction
+@{
+    ViewBag.Title = "SalesEdit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container mt-4">
+    <h3 class="mb-3"><i class="fas fa-edit me-2"></i> Satış Düzenle</h3>
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">@TempData["Error"]</div>
+    }
+
+    @using (Html.BeginForm("SalesEdit", "Sales", FormMethod.Post))
+    {
+        @Html.HiddenFor(m => m.SalesTransactionsID)
+
+        <div class="mb-3">
+            @Html.LabelFor(m => m.ProductID, "Ürün Seçiniz", new { @class = "form-label" })
+            @Html.DropDownListFor(m => m.ProductID, (SelectList)ViewBag.Products, "Ürün Seçiniz", new { @class = "form-select" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(m => m.CurrentID, "Cari Seçiniz", new { @class = "form-label" })
+            @Html.DropDownListFor(m => m.CurrentID, (SelectList)ViewBag.Currents, "Cari Seçiniz", new { @class = "form-select" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(m => m.EmployeeID, "Personel Seçiniz", new { @class = "form-label" })
+            @Html.DropDownListFor(m => m.EmployeeID, (SelectList)ViewBag.Employees, "Personel Seçiniz", new { @class = "form-select" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(m => m.SalesTransactionsTotalAmount, "Adet", new { @class = "form-label" })
+            @Html.TextBoxFor(m => m.SalesTransactionsTotalAmount, new { @class = "form-control", placeholder = "Kaç adet satıldı?" })
+        </div>
+
+        <button type="submit" class="btn btn-warning">
+            <i class="fas fa-check me-1"></i> Satışı Güncelle
+        </button>
+    }
+</div>

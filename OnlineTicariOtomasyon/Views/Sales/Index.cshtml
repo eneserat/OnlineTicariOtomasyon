@@ -4,41 +4,47 @@
         ViewBag.Title = "Index";
         Layout = "~/Views/Shared/_AdminLayout.cshtml";
     }
-    <div class="container mt-4">
-        <h3 class="mb-3"><i class="fas fa-file-invoice-dollar me-2 text-primary"></i>Satış Hareketleri</h3>
+<div class="container mt-4">
+    <h3 class="mb-3"><i class="fas fa-file-invoice-dollar me-2 text-primary"></i> Satış Hareketleri</h3>
 
-        <table class="table table-bordered table-hover table-striped shadow-sm">
-            <thead class="table-dark">
-                <tr>
-                    <th>#</th>
-                    <th>Tarih</th>
-                    <th>Ürün</th>
-                    <th>Personel</th>
-                    <th>Müşteri</th>
-                    <th>Birim Fiyat</th>
-                    <th>Toplam Tutar</th>
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">@TempData["Success"]</div>
+    }
+
+    <table class="table table-bordered table-hover table-striped shadow-sm">
+        <thead class="table-dark">
+            <tr>
+                <th>#</th>
+                <th>Tarih</th>
+                <th>Ürün</th>
+                <th>Personel</th>
+                <th>Müşteri</th>
+                <th>Birim Fiyat</th>
+                <th>Toplam Tutar</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Count(); i++)
+            {
+                var s = Model[i];
+                bool updated = TempData["UpdatedSaleID"] != null && (int)TempData["UpdatedSaleID"] == s.SalesTransactionsID;
+
+                <tr class="@(updated ? "table-success" : "")">
+                    <td>@(i + 1)</td>
+                    <td>@s.SalesTransactionsDate.ToString("dd.MM.yyyy HH:mm")</td>
+                    <td>@(s.Product != null ? s.Product.ProductName : "-")</td>
+                    <td>@(s.Employee != null ? s.Employee.EmployeeName + " " + s.Employee.EmployeeSurname : "-")</td>
+                    <td>@(s.Current != null ? s.Current.CurrentName : "-")</td>
+                    <td>@s.SalesTransactionsPrice.ToString("C")</td>
+                    <td>@s.SalesTransactionsTotalAmount.ToString("C")</td>
+                    <td>
+                        <a href="@Url.Action("SalesEdit", "Sales", new { id = s.SalesTransactionsID })"
+                           class="btn btn-warning btn-sm">Düzenle</a>
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-                @for (int i = 0; i < Model.Count(); i++)
-                {
-                    var s = Model.ElementAt(i);
-                    <tr>
-                        <td>@(i + 1)</td>
-                        <td>@s.SalesTransactionsDate.ToString("dd.MM.yyyy HH:mm")</td>
-                        <td>@(s.Product != null ? s.Product.ProductName : "-")</td>
-                        <td>@(s.Employee != null ? s.Employee.EmployeeName + " " + s.Employee.EmployeeSurname : "-")</td>
-                        <td>@(s.Current != null ? s.Current.CurrentName : "-")</td>
-                        <td>@s.SalesTransactionsPrice.ToString("C")</td>
-                        <td>@s.SalesTransactionsTotalAmount.ToString("C")</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-
-
-
+            }
+        </tbody>
+    </table>
+</div>v
