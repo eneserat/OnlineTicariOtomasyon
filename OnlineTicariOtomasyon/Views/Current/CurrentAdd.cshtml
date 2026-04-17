@@ -1,0 +1,66 @@
+﻿@model OnlineTicariOtomasyon.Models.Classes.Current
+@{
+    ViewBag.Title = "CurrentAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+
+<div class="card shadow-sm col-12">
+
+ 
+    <div class="card-header bg-dark text-white">
+        <i class="fas fa-user-plus me-2"></i>
+        Yeni Cari Ekle
+    </div>
+
+    <div class="card-body">
+
+        <form method="post">
+
+            <div class="mb-3">
+                <label><i class="fas fa-user me-1"></i> Ad</label>
+                <br />
+                @Html.TextBoxFor(x => x.CurrentName, new { @class = "form-control", placeholder = "Ad giriniz..." })
+            </div>
+
+            <div class="mb-3">
+                <label><i class="fas fa-user-tag me-1"></i> Soyad</label>
+                <br />
+                @Html.TextBoxFor(x => x.CurrentSurname, new { @class = "form-control", placeholder = "Soyad giriniz..." })
+            </div>
+
+            <div class="mb-3">
+                <label><i class="fas fa-city me-1"></i> Şehir</label>
+                <br />
+                @Html.TextBoxFor(x => x.CurrentCity, new { @class = "form-control", placeholder = "Şehir giriniz..." })
+            </div>
+
+            <div class="mb-3">
+                <label><i class="fas fa-envelope me-1"></i> Mail</label>
+                <br />
+                @Html.TextBoxFor(x => x.CurrentMail, new { @class = "form-control", placeholder = "Mail giriniz..." })
+            </div>
+
+           
+            <div class="d-flex justify-content-between mt-4">
+
+                <a href="/Current/Index" class="btn btn-secondary d-flex align-items-center gap-2">
+                    <i class="fas fa-arrow-left"></i>
+                    Geri
+                </a>
+
+                <button class="btn btn-success d-flex align-items-center gap-2">
+                    <i class="fas fa-save"></i>
+                    Kaydet
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+<link href="https://use.fontawesome.com/releases/v6.3.0/css/all.css" rel="stylesheet">
+

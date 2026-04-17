@@ -1,0 +1,71 @@
+﻿@model OnlineTicariOtomasyon.Models.Classes.Current
+@{
+    ViewBag.Title = "CurrentEdit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+
+<div class="card shadow-sm col-12">
+
+
+    <div class="card-header bg-dark text-white">
+        <i class="fas fa-user-pen me-2"></i>
+        Cari Güncelle
+    </div>
+
+    <div class="card-body">
+
+        @using (Html.BeginForm("CurrentEdit", "Current", FormMethod.Post))
+        {
+            @Html.HiddenFor(x => x.CurrentID)
+
+            <div class="mb-3">
+                <label class="form-label">
+                    <i class="fas fa-user me-1"></i> Ad
+                </label>
+                @Html.TextBoxFor(x => x.CurrentName, new { @class = "form-control", placeholder = "Ad giriniz..." })
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">
+                    <i class="fas fa-user-tag me-1"></i> Soyad
+                </label>
+                @Html.TextBoxFor(x => x.CurrentSurname, new { @class = "form-control", placeholder = "Soyad giriniz..." })
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">
+                    <i class="fas fa-city me-1"></i> Şehir
+                </label>
+                @Html.TextBoxFor(x => x.CurrentCity, new { @class = "form-control", placeholder = "Şehir giriniz..." })
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">
+                    <i class="fas fa-envelope me-1"></i> Mail
+                </label>
+                @Html.TextBoxFor(x => x.CurrentMail, new { @class = "form-control", placeholder = "Mail giriniz..." })
+            </div>
+
+           
+            <div class="d-flex justify-content-between mt-4">
+
+                <a href="/Current/Index" class="btn btn-secondary d-flex align-items-center gap-2">
+                    <i class="fas fa-arrow-left"></i>
+                    Geri
+                </a>
+
+                <button type="submit" class="btn btn-success d-flex align-items-center gap-2">
+                    <i class="fas fa-save"></i>
+                    Güncelle
+                </button>
+
+            </div>
+        }
+
+    </div>
+</div>
+
+<link href="https://use.fontawesome.com/releases/v6.3.0/css/all.css" rel="stylesheet">
+

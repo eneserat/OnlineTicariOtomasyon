@@ -1,43 +1,98 @@
-﻿@model OnlineTicariOtomasyon.Models.Classes.SalesTransaction
+﻿@model List<OnlineTicariOtomasyon.Models.Classes.SalesTransaction>
 @{
     ViewBag.Title = "SalesEdit";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="container mt-4">
-    <h3 class="mb-3"><i class="fas fa-edit me-2"></i> Satış Düzenle</h3>
+<h2>Satış Hareketleri Düzenleme Paneli</h2>
 
-    @if (TempData["Error"] != null)
-    {
-        <div class="alert alert-danger">@TempData["Error"]</div>
-    }
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Success"]
+    </div>
+}
 
-    @using (Html.BeginForm("SalesEdit", "Sales", FormMethod.Post))
-    {
-        @Html.HiddenFor(m => m.SalesTransactionsID)
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Error"]
+    </div>
+}
 
-        <div class="mb-3">
-            @Html.LabelFor(m => m.ProductID, "Ürün Seçiniz", new { @class = "form-label" })
-            @Html.DropDownListFor(m => m.ProductID, (SelectList)ViewBag.Products, "Ürün Seçiniz", new { @class = "form-select" })
-        </div>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Ürün</th>
+            <th>Cari</th>
+            <th>Personel</th>
+            <th>Adet</th>
+            <th>Fiyat</th>
+            <th>Toplam</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
 
-        <div class="mb-3">
-            @Html.LabelFor(m => m.CurrentID, "Cari Seçiniz", new { @class = "form-label" })
-            @Html.DropDownListFor(m => m.CurrentID, (SelectList)ViewBag.Currents, "Cari Seçiniz", new { @class = "form-select" })
-        </div>
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
 
-        <div class="mb-3">
-            @Html.LabelFor(m => m.EmployeeID, "Personel Seçiniz", new { @class = "form-label" })
-            @Html.DropDownListFor(m => m.EmployeeID, (SelectList)ViewBag.Employees, "Personel Seçiniz", new { @class = "form-select" })
-        </div>
+               
+                <form method="post" action="/Sales/SalesEdit">
 
-        <div class="mb-3">
-            @Html.LabelFor(m => m.SalesTransactionsTotalAmount, "Adet", new { @class = "form-label" })
-            @Html.TextBoxFor(m => m.SalesTransactionsTotalAmount, new { @class = "form-control", placeholder = "Kaç adet satıldı?" })
-        </div>
+                <td>
+                    @x.SalesTransactionsID
+                    <input type="hidden" name="SalesTransactionsID" value="@x.SalesTransactionsID" />
+                </td>
 
-        <button type="submit" class="btn btn-warning">
-            <i class="fas fa-check me-1"></i> Satışı Güncelle
-        </button>
-    }
-</div>
+                <td>
+                    <input type="number" name="ProductID" value="@x.ProductID" class="form-control" />
+                </td>
+
+                <td>
+                    <input type="number" name="CurrentID" value="@x.CurrentID" class="form-control" />
+                </td>
+
+                <td>
+                    <input type="number" name="EmployeeID" value="@x.EmployeeID" class="form-control" />
+                </td>
+
+                <td>
+                    <input type="number" name="SalesTransactionsAmount" value="@x.SalesTransactionsTotalAmount" class="form-control" />
+                </td>
+
+                <td>
+                    @x.SalesTransactionsPrice
+                </td>
+
+                <td>
+                    @x.SalesTransactionsTotalAmount
+                </td>
+
+                <td>
+
+                    
+                    <button type="submit" class="btn btn-success btn-sm">
+                        Güncelle
+                    </button>
+
+                   
+                    <a href="/Sales/SalesDelete/@x.SalesTransactionsID"
+                       class="btn btn-danger btn-sm"
+                       onclick="return confirm('Gerçekten silmek istiyor musun?');">
+                        Sil
+                    </a>
+
+                </td>
+
+                </form>
+              
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+

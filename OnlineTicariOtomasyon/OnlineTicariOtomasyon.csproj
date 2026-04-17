@@ -130,9 +130,11 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\CurrentController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InvoiceController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SalesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -245,6 +247,11 @@
     <Content Include="Views\Sales\Index.cshtml" />
     <Content Include="Views\Sales\SalesAdd.cshtml" />
     <Content Include="Views\Sales\SalesEdit.cshtml" />
+    <Content Include="Views\Invoice\Index.cshtml" />
+    <Content Include="Views\Invoice\InvoiceAdd.cshtml" />
+    <Content Include="Views\Current\Index.cshtml" />
+    <Content Include="Views\Current\CurrentAdd.cshtml" />
+    <Content Include="Views\Current\CurrentEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
