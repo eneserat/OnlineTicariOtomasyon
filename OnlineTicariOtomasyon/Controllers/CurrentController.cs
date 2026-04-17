@@ -12,9 +12,15 @@ namespace OnlineTicariOtomasyon.Controllers
         Context c = new Context();
         public ActionResult Index()
         {
+
             var liste = c.Currents.ToList();
             return View(liste);
 
+        }
+        public ActionResult Logs()
+        {
+            var values = c.CurrentLogs.OrderByDescending(x => x.ActionDate).ToList();
+            return View(values);
         }
         [HttpGet]
         public ActionResult CurrentAdd()
@@ -72,9 +78,27 @@ namespace OnlineTicariOtomasyon.Controllers
             value.CurrentMail = current.CurrentMail;
 
             c.SaveChanges();
+            CurrentLog log = new CurrentLog();
 
-            TempData["Success"] = "Cari başarıyla güncellendi!";
+            log.CurrentID = current.CurrentID;
+            log.ActionType = "Güncelleme";
+            log.ActionDate = DateTime.Now;
+
+
+            string user = Session["erateeness"] as string;
+
+            log.EmployeeName = string.IsNullOrEmpty(user)
+                ? "Bilinmeyen Kullanıcı"
+                : user;
+
+            log.Description = current.CurrentName + " güncellendi";
+
+            c.CurrentLogs.Add(log);
+            c.SaveChanges();
+
+            TempData["Success"] = "Cari Başarıyla Güncellendi + Log Kaydedildi!";
             return RedirectToAction("Index");
+
         }
 
       

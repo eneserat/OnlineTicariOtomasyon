@@ -18,6 +18,7 @@ namespace OnlineTicariOtomasyon.Models.Classes
         public DbSet<InvoicePen> InvoicePens { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<SalesTransaction> SalesTransactions { get; set; }
+        public DbSet<CurrentLog> CurrentLogs { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
