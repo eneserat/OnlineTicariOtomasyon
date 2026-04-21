@@ -1,0 +1,157 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .stat-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .stat-card {
+        height: 120px;
+        border-radius: 16px;
+        padding: 20px;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        cursor: pointer;
+    }
+
+        .stat-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+    .stat-icon {
+        font-size: 28px;
+        opacity: 0.9;
+    }
+
+    .stat-text h3 {
+        margin: 0;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .stat-text p {
+        margin: 0;
+        font-size: 13px;
+        opacity: 0.85;
+    }
+</style>
+
+<div class="stat-container">
+
+
+    <div class="stat-card" style="background: linear-gradient(135deg,#1abc9c,#16a085);">
+        <div class="stat-text">
+            <h3>@ViewBag.d1</h3>
+            <p>Toplam Cari</p>
+        </div>
+        <i class="fas fa-users stat-icon"></i>
+    </div>
+
+    <div class="stat-card" style="background: linear-gradient(135deg,#2ecc71,#27ae60);">
+        <div class="stat-text">
+            <h3>@ViewBag.d2</h3>
+            <p> Toplam Ürün Sayısı</p>
+        </div>
+        <i class="fas fa-box stat-icon"></i>
+    </div>
+
+    <div class="stat-card" style="background: linear-gradient(135deg,#3498db,#2980b9);">
+        <div class="stat-text">
+            <h3>@ViewBag.d3</h3>
+            <p>Personel Sayısı</p>
+        </div>
+        <i class="fas fa-user-tie stat-icon"></i>
+    </div>
+
+    <div class="stat-card" style="background: linear-gradient(135deg,#9b59b6,#8e44ad);">
+        <div class="stat-text">
+            <h3>@ViewBag.d4</h3>
+            <p>Kategori Sayısı</p>
+        </div>
+        <i class="fas fa-tags stat-icon"></i>
+    </div>
+
+    <div class="stat-card" style="background: linear-gradient(135deg,#16a085,#1abc9c);">
+        <div class="stat-text">
+            <h3>@ViewBag.d5</h3>
+            <p>Toplam Stok</p>
+        </div>
+        <i class="fas fa-warehouse stat-icon"></i>
+    </div>
+
+    <div class="stat-card" style="background: linear-gradient(135deg,#27ae60,#2ecc71);">
+        <div class="stat-text">
+            <h3>@ViewBag.d6</h3>
+            <p>Marka Sayısı</p>
+        </div>
+        <i class="fas fa-copyright stat-icon"></i>
+    </div>
+
+    <div class="stat-card" style="background: linear-gradient(135deg,#2980b9,#3498db);">
+        <div class="stat-text">
+            <h3>@ViewBag.d7</h3>
+            <p>Kritik Seviye</p>
+        </div>
+        <i class="fas fa-exclamation-triangle stat-icon"></i>
+    </div>
+
+    <div class="stat-card" style="background: linear-gradient(135deg,#8e44ad,#9b59b6);">
+        <div class="stat-text">
+            <h3>@ViewBag.d8</h3>
+            <p>Max Fiyatlı Ürün</p>
+        </div>
+        <i class="fas fa-coins stat-icon"></i>
+    </div>
+    <div class="stat-card" style="background: linear-gradient(135deg,#8e44ad,#9b59b6);">
+        <div class="stat-text">
+            <h3>@ViewBag.d9</h3>
+            <p>Min Fiyatlı Ürün</p>
+        </div>
+        <i class="fas fa-coins stat-icon"></i>
+    </div>
+
+
+    <div class="stat-card" style="background: linear-gradient(135deg,#f39c12,#e67e22);">
+        <div class="stat-text">
+            <h3>@ViewBag.ciro</h3>
+            <p>Toplam Ciro</p>
+        </div>
+        <i class="fas fa-coins stat-icon"></i>
+    </div>
+
+    <div class="stat-card" style="background: linear-gradient(135deg,#e74c3c,#c0392b);">
+        <div class="stat-text">
+            <h3>@ViewBag.bugunSatis</h3>
+            <p>Bugünkü Satış</p>
+        </div>
+        <i class="fas fa-shopping-cart stat-icon"></i>
+    </div>
+
+    <div class="stat-card" style="background: linear-gradient(135deg,#1abc9c,#16a085);">
+        <div class="stat-text">
+            <h3>@ViewBag.enCokSatan</h3>
+            <p>En Çok Satan Ürün</p>
+        </div>
+        <i class="fas fa-star stat-icon"></i>
+    </div>
+
+    <div class="stat-card" style="background: linear-gradient(135deg,#34495e,#2c3e50);">
+        <div class="stat-text">
+            <h3>@ViewBag.toplamSatisAdet</h3>
+            <p>Toplam Satış Adedi</p>
+        </div>
+        <i class="fas fa-receipt stat-icon"></i>
+    </div>
+
+</div>

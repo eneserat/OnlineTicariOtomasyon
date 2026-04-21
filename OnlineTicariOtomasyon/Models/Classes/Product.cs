@@ -35,7 +35,7 @@ namespace OnlineTicariOtomasyon.Models.Classes
         public int CategoryID { get; set; } 
         public Category Category { get; set; } 
 
-        public ICollection<SalesTransaction> SalesTransactions { get; set; } // Ürün satışları
+        public ICollection<SalesTransaction> SalesTransactions { get; set; } 
 
     }
 }

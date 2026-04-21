@@ -20,7 +20,7 @@ namespace OnlineTicariOtomasyon.Models.Classes
         public decimal UnitPrice { get; set; }
         public decimal Amount { get; set; }
 
-        // Fatura kalem için
+      
         public Invoice Invoice { get; set; } 
 
 
