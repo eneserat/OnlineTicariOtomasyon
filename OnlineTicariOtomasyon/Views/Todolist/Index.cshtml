@@ -1,0 +1,158 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    body {
+        background: #f4f6f9;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    .todo-container {
+        max-width: 800px;
+        margin: 40px auto;
+    }
+
+    .header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+        .header h1 {
+            font-size: 24px;
+            color: #1f2937;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+    .card {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .input-box {
+        display: flex;
+        gap: 10px;
+    }
+
+        .input-box input {
+            flex: 1;
+            padding: 10px 12px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .input-box button {
+            background: #2563eb;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+            .input-box button:hover {
+                background: #1d4ed8;
+            }
+
+    .list {
+        margin-top: 20px;
+    }
+
+    .item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #f9fafb;
+        padding: 12px 14px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #e5e7eb;
+        transition: 0.2s;
+    }
+
+        .item:hover {
+            background: #f3f4f6;
+        }
+
+    .done {
+        text-decoration: line-through;
+        color: #9ca3af;
+    }
+
+    .btn {
+        border: none;
+        padding: 6px 10px;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-left: 5px;
+        font-size: 12px;
+    }
+
+    .complete {
+        background: #10b981;
+        color: white;
+    }
+
+    .delete {
+        background: #ef4444;
+        color: white;
+    }
+</style>
+
+<div class="todo-container">
+
+    <div class="header">
+        <h1>ToDo List</h1>
+        <p>Görev yönetim paneli</p>
+    </div>
+
+    <div class="card">
+
+        <form method="post" action="/Todo/Add" class="input-box">
+            <input type="text" name="TodolistTitle" placeholder="Yeni görev ekle..." required />
+            <button type="submit">Ekle</button>
+        </form>
+
+        <div class="list">
+
+            @foreach (var item in Model)
+            {
+                <div class="item @(item.TodolistSituation ? "done" : "")">
+
+                    <div>
+                        @item.TodolistTitle
+                    </div>
+
+                    <div>
+
+                        @if (!item.TodolistSituation)
+                        {
+                            <a href="/Todo/Complete/@item.TodolistID">
+                                <button class="btn complete">Tamamla</button>
+                            </a>
+                        }
+
+                        <a href="/Todo/Delete/@item.TodolistID">
+                            <button class="btn delete">Sil</button>
+                        </a>
+
+                    </div>
+
+                </div>
+            }
+
+        </div>
+
+    </div>
+</div>

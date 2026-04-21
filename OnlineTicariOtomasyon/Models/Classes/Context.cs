@@ -19,6 +19,7 @@ namespace OnlineTicariOtomasyon.Models.Classes
         public DbSet<Product> Products { get; set; }
         public DbSet<SalesTransaction> SalesTransactions { get; set; }
         public DbSet<CurrentLog> CurrentLogs { get; set; }
+        public DbSet<ToDoList> ToDoLists { get; set; }  
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
