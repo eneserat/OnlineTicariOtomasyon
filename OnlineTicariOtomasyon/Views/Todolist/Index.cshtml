@@ -1,10 +1,39 @@
-﻿
+﻿@model List<OnlineTicariOtomasyon.Models.Classes.ToDoList>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-@TempData["Type"]" style="margin-bottom:15px;">
+        @TempData["Message"]
+    </div>
+}
+
 <style>
+    .alert {
+        padding: 10px 14px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        font-size: 14px;
+    }
+
+    .alert-success {
+        background: #d1fae5;
+        color: #065f46;
+    }
+
+    .alert-info {
+        background: #dbeafe;
+        color: #1e3a8a;
+    }
+
+    .alert-danger {
+        background: #fee2e2;
+        color: #991b1b;
+    }
+
     body {
         background: #f4f6f9;
         font-family: 'Segoe UI', sans-serif;
@@ -119,7 +148,7 @@
 
     <div class="card">
 
-        <form method="post" action="/Todo/Add" class="input-box">
+        <form method="post" action="/Todolist/Add" class="input-box">
             <input type="text" name="TodolistTitle" placeholder="Yeni görev ekle..." required />
             <button type="submit">Ekle</button>
         </form>
@@ -138,12 +167,12 @@
 
                         @if (!item.TodolistSituation)
                         {
-                            <a href="/Todo/Complete/@item.TodolistID">
+                            <a href="/Todolist/Complete/@item.TodolistID">
                                 <button class="btn complete">Tamamla</button>
                             </a>
                         }
 
-                        <a href="/Todo/Delete/@item.TodolistID">
+                        <a href="/Todolist/Delete/@item.TodolistID">
                             <button class="btn delete">Sil</button>
                         </a>
 
