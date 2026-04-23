@@ -1,0 +1,194 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<title>Proje Paneli</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+<link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Raleway:300,400,600,700" rel="stylesheet">
+
+
+<link href="~/weblogintema/weblogin/css/style.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<link href="~/weblogintema/weblogin/css/popup-box.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<section class="register">
+	<div class="header">
+		<div class="logo">
+			<a href="#">Online Ticari Otomasyon</a>
+		</div>
+
+		<div class="social">
+			<li><a href="#"><span class="fa-brands fa-facebook"></span></a></li>
+			<li><a href="#"><span class="fa-brands fa-x-twitter"></span></a></li>
+			<li><a href="#"><span class="fa-brands fa-linkedin"></span></a></li>
+			<li><a href="#"><span class="fa-brands fa-google"></span></a></li>
+		</div>
+
+		<div class="clear"></div>
+	</div>
+
+	<div class="register-full">
+
+		<div class="register-left">
+			<div class="register">
+				<p>Projeler Üzerinde Çalışıldı</p>
+				<h1>Hoş Geldin</h1>
+				<h2>Modern Yönetim Paneli</h2>
+				<p>
+					Bu panel üzerinden tüm işlemlerinizi kolayca yönetebilirsiniz.
+					Hızlı, güvenli ve kullanıcı dostu bir deneyim sunar.
+				</p>
+
+				<div class="content3">
+					<ul>
+						<li><a href="#"><i class="fa fa-plus"></i> Yeni Proje</a></li>
+						<li><a class="read" href="#"><i class="fa fa-play"></i> Başla</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="register-right">
+			<div class="register-in">
+				<a class="book popup-with-zoom-anim button-isi zoomIn animated" href="#small-dialog2">
+					<i class="fa fa-user-plus"></i> Cari Kayıt »
+				</a>
+			</div>
+
+			<div class="register-in middle">
+				<a class="book popup-with-zoom-anim button-isi zoomIn animated" href="#small-dialog">
+					<i class="fa fa-right-to-bracket"></i> Giriş Yap »
+				</a>
+			</div>
+
+			<div class="register-in">
+                <a class="book popup-with-zoom-anim button-isi zoomIn animated" href="#small-dialog1">
+                    <i class="fa fa-user-tie"></i> Personel Giriş »
+                </a>
+			</div>
+
+			<div class="clear"></div>
+		</div>
+
+		<div class="clear"></div>
+	</div>
+
+	<p class="agile-copyright">
+		© 2026 Tüm Hakları Saklıdır
+	</p>
+
+</section>
+
+<!-- LOGIN -->
+<div class="pop-up">
+	<div id="small-dialog" class="mfp-hide book-form">
+
+		<div class="login-form login-form-left">
+			<div class="agile-row">
+				<h3><i class="fa fa-right-to-bracket"></i> Giriş Yap</h3>
+				<span class="fa fa-lock"></span>
+
+				<div class="login-agileits-top">
+					@using (Html.BeginForm("CurrentLogin1", "Login", FormMethod.Post))
+					{
+
+						<input type="text" name="CurrentMail" placeholder="Mail Adresiniz " required="">
+						<input type="password" name="CurrentPassword" placeholder="Şifreniz" required="">
+						<input type="submit" value="Giriş Yap">
+					}
+				</div>
+
+				<div class="login-agileits-bottom">
+					<h6><a href="#">Şifremi Unuttum?</a></h6>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<!-- SUBSCRIBE -->
+<div class="pop-up">
+	<div id="small-dialog1" class="mfp-hide book-form">
+
+		<div class="login-form login-form-left">
+			<div class="agile-row">
+				<h3>Kullanıcı Adı Ve Şifrenizi Giriniz...</h3>
+				<div class="login-agileits-top">
+					<form action="#" method="post">
+						<input type="text" class="name" name="UserName" placeholder="Kullanıcı Adınız " required="">
+						<input type="password" class="password "name="Password" placeholder="Şifreniz" required="">
+						<input type="submit" value="Giriş Yap">
+					</form>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<!-- REGISTER -->
+<div class="pop-up">
+    <div id="small-dialog2" class="mfp-hide book-form">
+
+        @Html.Action("Partial1", "Login")	
+
+    </div>
+</div>
+
+
+<script src="~/weblogintema/weblogin/js/jquery-2.1.4.min.js"></script>
+<script src="~/weblogintema/weblogin/js/jquery.magnific-popup.js"></script>
+
+<script>
+$(document).ready(function() {
+	$('.popup-with-zoom-anim').magnificPopup({
+		type: 'inline',
+		midClick: true
+	});
+});
+</script>
+
+</body>
+</html>
+<style>
+    
+    .mfp-content {
+        max-width: 500px;
+        width: 95%;
+        margin: auto;
+    }
+
+    .login-form {
+        width: 100% !important;
+        padding: 40px !important;
+        border-radius: 12px;
+    }
+
+        /* inputlar daha düzgün */
+        .login-form input {
+            font-size: 14px;
+            padding: 12px;
+        }
+
+      
+        .login-form h3 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+</style>

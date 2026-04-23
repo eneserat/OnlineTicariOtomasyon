@@ -1,0 +1,128 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Cari Panel</title>
+
+    <!-- Bootstrap -->
+    <link href="~/webpanelticari/webpanel/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom -->
+    <link href="~/webpanelticari/webpanel/css/simple-sidebar.css" rel="stylesheet">
+
+    <!-- 🔥 FONT AWESOME FIX -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <div class="d-flex" id="wrapper">
+
+        <!-- SIDEBAR -->
+        <div class="bg-light border-right" id="sidebar-wrapper">
+
+            <div class="sidebar-heading">
+                Online Ticari Otomasyon - Cari Panel
+            </div>
+
+            <div class="list-group list-group-flush">
+
+                <a href="#" class="list-group-item list-group-item-action bg-light">
+                    <i class="fa-solid fa-user"></i> Profilim
+                </a>
+
+                <a href="#" class="list-group-item list-group-item-action bg-light">
+                    <i class="fa-solid fa-box"></i> Siparişlerim
+                </a>
+
+                <a href="#" class="list-group-item list-group-item-action bg-light">
+                    <i class="fa-solid fa-truck"></i> Kargo Takibi
+                </a>
+
+                <a href="#" class="list-group-item list-group-item-action bg-light">
+                    <i class="fa-solid fa-envelope"></i> Mesajlar
+                </a>
+
+                <a href="#" class="list-group-item list-group-item-action bg-light text-danger">
+                    <i class="fa-solid fa-right-from-bracket"></i> Çıkış Yap
+                </a>
+
+            </div>
+        </div>
+
+        <!-- PAGE CONTENT -->
+        <div id="page-content-wrapper">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+
+                <button class="btn btn-primary" id="menu-toggle">
+                    Menü Gizle
+                </button>
+
+                <div class="collapse navbar-collapse">
+
+                    <ul class="navbar-nav ml-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="fa-solid fa-user"></i> Profilim
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="fa-solid fa-truck-fast"></i> Kargom Nerede?
+                            </a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+
+                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                                Menü
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#">Siparişlerim</a>
+                                <a class="dropdown-item" href="#">Yardım</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-danger" href="#">Çıkış Yap</a>
+                            </div>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </nav>
+
+            <div class="container-fluid">
+                @RenderBody()
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- JS -->
+    <script src="~/webpanelticari/webpanel/vendor/jquery/jquery.min.js"></script>
+    <script src="~/webpanelticari/webpanel/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
+
+</body>
+</html>

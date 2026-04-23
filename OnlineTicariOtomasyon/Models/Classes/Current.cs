@@ -28,7 +28,12 @@ namespace OnlineTicariOtomasyon.Models.Classes
         [StringLength(50)]
         public string CurrentMail { get; set; }
 
-       
+        [Column(TypeName = "Varchar")]
+        [StringLength(50)]
+        public string CurrentPassword { get; set; }
+
+
+
         public ICollection<SalesTransaction> SalesTransactions { get; set; }
     }
 }
