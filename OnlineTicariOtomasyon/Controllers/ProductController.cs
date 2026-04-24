@@ -10,10 +10,15 @@ namespace OnlineTicariOtomasyon.Controllers
     public class ProductController : Controller
     {
        Context c = new Context();
-        public ActionResult Index()
+        public ActionResult Index(string p)
         {
-            var urunler = c.Products.ToList();
-            return View(urunler);
+            var urunler = from x in c.Products select x;
+            if (!string.IsNullOrEmpty(p))
+            {
+                urunler = urunler.Where(x => x.ProductName.Contains(p));
+
+            }
+            return View(urunler.ToList());
         }
        
         [HttpGet]

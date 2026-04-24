@@ -24,7 +24,7 @@ namespace OnlineTicariOtomasyon.Controllers
         }
         [HttpGet]
         public ActionResult CurrentAdd()
-        {
+        { 
             return View();
         }
 
@@ -116,7 +116,67 @@ namespace OnlineTicariOtomasyon.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public ActionResult CurrentSales(int? id)
+        {
+            if (id == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            
+            var debug = c.SalesTransactions
+                         .Select(x => new { x.SalesTransactionsID, x.CurrentID })
+                         .ToList();
+
+            var values = (from s in c.SalesTransactions
+                          join p in c.Products on s.ProductID equals p.ProductID
+                          join e in c.Employees on s.EmployeeID equals e.EmployeeID
+                          where s.CurrentID == id
+                          select new CurrentSalesViewModel
+                          {
+                              SalesID = s.SalesTransactionsID,
+                              Product = p.ProductName,
+                              Employee = e.EmployeeName,
+                              Price = s.SalesTransactionsPrice,
+                              Quantity = 1,
+                              Total = s.SalesTransactionsTotalAmount,
+                              Date = s.SalesTransactionsDate
+                          }).ToList();
+
+            return View(values);
+        }
+        public ActionResult CreateInvoice(int id)
+        {
+            var sale = c.SalesTransactions.Find(id);
+
+            if (sale == null)
+            {
+                TempData["Error"] = "Satış bulunamadı!";
+                return RedirectToAction("Index");
+            }
+
+           
+            TempData["Success"] = "Fatura oluşturma işlemi tetiklendi!";
+
+            return RedirectToAction("Index");
+        }
+        public ActionResult Reports()
+        {
+            var values = (from s in c.SalesTransactions
+                          join cr in c.Currents on s.CurrentID equals cr.CurrentID
+                          select new CurrentReportViewModel
+                          {
+                              CurrentID = cr.CurrentID,
+                              CurrentName = cr.CurrentName,
+                              Total = s.SalesTransactionsTotalAmount,
+                              Date = s.SalesTransactionsDate
+                          }).ToList();
+
+            return View(values);
+        }
     }
+
 
 }
 

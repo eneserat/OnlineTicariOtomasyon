@@ -129,13 +129,15 @@
 		<div class="login-form login-form-left">
 			<div class="agile-row">
 				<h3>Kullanıcı Adı Ve Şifrenizi Giriniz...</h3>
-				<div class="login-agileits-top">
-					<form action="#" method="post">
-						<input type="text" class="name" name="UserName" placeholder="Kullanıcı Adınız " required="">
-						<input type="password" class="password "name="Password" placeholder="Şifreniz" required="">
-						<input type="submit" value="Giriş Yap">
-					</form>
-				</div>
+                <div class="login-agileits-top">
+                    @using (Html.BeginForm("AdminLogin", "Login", FormMethod.Post)) 
+					{ 
+
+                        <input type="text" class="name" name="UserName" placeholder="Kullanıcı Adınız " required="">
+                        <input type="password" class="password " name="Password" placeholder="Şifreniz" required="">
+                        <input type="submit" value="Giriş Yap">
+					}
+                </div>
 			</div>
 		</div>
 

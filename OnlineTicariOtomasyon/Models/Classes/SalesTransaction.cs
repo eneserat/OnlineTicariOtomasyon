@@ -24,7 +24,8 @@ namespace OnlineTicariOtomasyon.Models.Classes
         public Current Current { get; set; } 
 
         public int EmployeeID { get; set; } 
-        public Employee Employee { get; set; } 
+        public Employee Employee { get; set; }
+        public int Quantity { get; set; }
 
 
     }

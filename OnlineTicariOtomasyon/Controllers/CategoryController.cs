@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using OnlineTicariOtomasyon.Models.Classes;
+using PagedList;
+using PagedList.Mvc;
 
 namespace OnlineTicariOtomasyon.Controllers
 {
@@ -12,10 +14,10 @@ namespace OnlineTicariOtomasyon.Controllers
         Context c = new Context();
 
        
-        public ActionResult Index()
+        public ActionResult Index(int page=1)
         {
             ViewBag.Title = "Kategori Listesi";
-            var degerler = c.Categories.ToList();
+            var degerler = c.Categories.OrderBy(x => x.CategoryID).ToPagedList(page, 10);
             return View(degerler);
         }
 

@@ -1,5 +1,8 @@
 ﻿@using OnlineTicariOtomasyon.Models.Classes
-@model List<Category>
+@model PagedList.IPagedList<Category>
+@using PagedList.Mvc;
+@using PagedList;
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -71,7 +74,13 @@
                 }
             </tbody>
         </table>
-
+        <div class="d-flex justify-content-center mt-4">
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page }),
+                new PagedList.Mvc.PagedListRenderOptions
+                {
+                    LiElementClasses = new[] { "page-item" },
+                })
+        </div>
         <a href="/Category/CategoryAdd" class="btn btn-success">
             <i class="fas fa-plus me-1"></i> Kategori Ekle
         </a>
@@ -80,3 +89,40 @@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+<style>
+    .pagination {
+        gap: 6px;
+    }
+
+        .pagination li {
+            list-style: none;
+        }
+
+            .pagination li a,
+            .pagination li span {
+                border-radius: 10px !important;
+                padding: 8px 14px;
+                border: none;
+                background: #f1f3f5;
+                color: #333;
+                transition: all 0.2s ease;
+            }
+
+                .pagination li a:hover {
+                    background: #0d6efd;
+                    color: #fff;
+                    transform: translateY(-2px);
+                }
+
+        .pagination .active span {
+            background: #0d6efd !important;
+            color: white !important;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .pagination .disabled span {
+            background: #e9ecef;
+            color: #aaa;
+        }
+</style>

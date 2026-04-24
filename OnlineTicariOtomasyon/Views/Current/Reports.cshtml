@@ -1,0 +1,44 @@
+﻿@model List<OnlineTicariOtomasyon.Controllers.CurrentReportViewModel>
+
+@{
+    ViewBag.Title = "Reports";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card shadow-sm mt-4">
+
+    <div class="card-header bg-dark text-white">
+        <i class="fas fa-chart-line me-2"></i> Cari Satış Raporları
+    </div>
+
+    <div class="card-body">
+
+        <table class="table table-hover table-striped text-center align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th>Cari Adı</th>
+                    <th>Toplam Satış</th>
+                    <th>Tarih</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var x in Model)
+                {
+                    <tr>
+                        <td>@x.CurrentName</td>
+
+                        <td>
+                            <span class="fw-bold text-success">
+                                @x.Total ₺
+                            </span>
+                        </td>
+
+                        <td>@x.Date.ToString("dd.MM.yyyy")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>

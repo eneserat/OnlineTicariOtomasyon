@@ -32,10 +32,8 @@ namespace OnlineTicariOtomasyon.Controllers
         public ActionResult SalesAdd(SalesTransaction sale)
         {
             var product = c.Products.Find(sale.ProductID);
-
             sale.SalesTransactionsPrice = product.SellingPrice;
-            sale.SalesTransactionsTotalAmount = sale.SalesTransactionsTotalAmount;
-            sale.SalesTransactionsTotalAmount = product.SellingPrice * sale.SalesTransactionsTotalAmount;
+            sale.SalesTransactionsTotalAmount = product.SellingPrice * sale.Quantity;
             sale.SalesTransactionsDate = DateTime.Now;
 
             c.SalesTransactions.Add(sale);

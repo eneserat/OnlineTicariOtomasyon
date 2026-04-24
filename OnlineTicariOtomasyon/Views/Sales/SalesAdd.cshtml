@@ -15,7 +15,7 @@
         <div class="alert alert-danger">@TempData["Error"]</div>
     }
 
-    @using (Html.BeginForm("SalesAdd", "SalesTransaction", FormMethod.Post))
+    @using (Html.BeginForm("SalesAdd", "Sales", FormMethod.Post))
     {
         <div class="mb-3">
             @Html.LabelFor(m => m.ProductID, "Ürün Seçiniz", new { @class = "form-label" })
@@ -33,8 +33,8 @@
         </div>
 
         <div class="mb-3">
-            @Html.LabelFor(m => m.SalesTransactionsTotalAmount, "Adet", new { @class = "form-label" })
-            @Html.TextBoxFor(m => m.SalesTransactionsTotalAmount, new { @class = "form-control", placeholder = "Kaç adet satıldı?" })
+            @Html.Label("Adet")
+            @Html.TextBox("Quantity", null, new { @class = "form-control", placeholder = "Kaç adet?" })
         </div>
 
         <button type="submit" class="btn btn-success">

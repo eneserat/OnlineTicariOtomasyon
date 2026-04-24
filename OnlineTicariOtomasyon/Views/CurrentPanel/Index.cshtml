@@ -1,7 +1,79 @@
-﻿
+﻿@model OnlineTicariOtomasyon.Models.Classes.Current
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/CurrentLayout.cshtml";
 }
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+    }
 
+    .full-page {
+        width: 100%;
+        min-height: 100vh;
+        padding: 20px;
+        background: #f5f6fa;
+    }
 
+    .card {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 16px;
+    }
+</style>
+
+<div class="full-page">
+
+    <div class="card shadow-lg border-0">
+
+        <div class="card-header bg-dark text-white py-3">
+            <h3 class="mb-0">👤 Cari Bilgi Paneli</h3>
+        </div>
+
+        <div class="card-body p-5">
+
+            <div class="mb-4 fs-5">
+                <label class="form-label fw-bold fs-5">📧 Mail Adresi</label><br />
+                <span class="text-primary fs-5">
+                    @HttpContext.Current.User.Identity.Name
+                </span>
+            </div>
+
+            @using (Html.BeginForm("Index2", "CurrentPanel", FormMethod.Post))
+            {
+                <div class="row g-4">
+
+                    <div class="col-md-6">
+                        <label class="form-label fs-5">Ad</label>
+                        @Html.TextBoxFor(x => x.CurrentName, new { @class = "form-control form-control-lg", placeholder = "Adınız" })
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label fs-5">Soyad</label>
+                        @Html.TextBoxFor(x => x.CurrentSurname, new { @class = "form-control form-control-lg", placeholder = "Soyadınız" })
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label fs-5">Şehir</label>
+                        @Html.TextBoxFor(x => x.CurrentCity, new { @class = "form-control form-control-lg", placeholder = "Şehir" })
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label fs-5">Şifre</label>
+                        @Html.TextBoxFor(x => x.CurrentPassword, new { @class = "form-control form-control-lg", type = "password", placeholder = "Şifre" })
+                    </div>
+
+                </div>
+
+                <div class="mt-5 text-end">
+                    <button class="btn btn-warning btn-lg px-5">
+                        💾 Bilgilerimi Güncelle
+                    </button>
+                </div>
+            }
+
+        </div>
+    </div>
+
+</div>
